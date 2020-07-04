@@ -12,9 +12,11 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
 ├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── package.json # npm package manager file.
+├── .gitignore
 ├── public
 │   ├── favicon.ico # React Icon as favicon.
-│   └── index.html # DO NOT MODIFY
+│   ├── index.html # DO NOT MODIFY
+│   └── manifest.json
 └── src
     ├── components
     |   ├── App.js # This is the root of app.
@@ -28,12 +30,28 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
     |           |── QuestionAnswer.js (if unanswered)
     |       |── NewQuestion.js
     |       |── LeaderBoard.js
-    |   ├── BookSearchPage.js
-    |       |──Book.js
-    ├── icons # Helpful images for app.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
+    |
+    ├── actions
+    │   ├── index.js
+    │   ├── logger.js
+    |
+    ├── middleware
+    │   ├── authedUser.js
+    │   ├── questions.js
+    |   ├── shared.js
+    │   └── users.js   
+    |
+    ├── reducers
+    │   ├── authedUser.js
+    |   ├── index.js
+    │   ├── questions.js
+    │   └── users.js
+    |
+    ├── utils
+    │   ├── _DATA.js
+    |   ├── api.js
+    │   └── helpers.js
+    |   
     ├── index.css # Global styles.
     └── index.js # File for DOM rendering only
 
