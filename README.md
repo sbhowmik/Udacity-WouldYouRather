@@ -3,12 +3,24 @@ This is the submission code for the final assessment project for Udacity's React
 
 The name of the Project is: Would You Rather. Its a game where participants ask would you rather questions and answers them. A Learderboard tracks the score of each participant based on how many questions they have asked and answered.
 
-# Technology
+Instructions for running this Project:
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start` or `yarn start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+## Technology
 Primary technology: React & Redux. 
 
 Supporting: Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# File Structure
+## File Structure
+```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── package.json # npm package manager file.
@@ -54,21 +66,9 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
     |   
     ├── index.css # Global styles.
     └── index.js # File for DOM rendering only
+```
 
-# Scripts
-In the project directory, you can run:
-
-## `npm install`
-in ordert to install the project dependencies
-
-## `yarn start`
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-# App Data
+## App Data
 The `_DATA.js` file represents a fake database and methods that let you access the data.
 
 ## Data
@@ -88,7 +88,7 @@ Users include:
 | name         | String  | The user’s first name  and last name |
 | avatarURL    | String  | The path to the image file           |
 | questions    | Array   | A list of ids of the polling questions this user created |
-| answers      | Object  |  The objects keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+| answers      | Object  |  The objects keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options. |
 
 ### Questions
 
@@ -111,7 +111,7 @@ Voting options are attached to questions. They include:
 | votes     | Array  | A list that contains the id of each user who voted for that option|
 | text      | String | The text of the option |
 
-Your code will talk to the database via 4 methods:
+Code talks to the database via 4 methods:
 
 * `_getUsers()`
 * `_getQuestions()`
