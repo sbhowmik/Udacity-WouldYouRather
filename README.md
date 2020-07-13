@@ -32,7 +32,7 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
 └── src
     ├── components
     |   ├── App.js # This is the root of app.
-    |       ├── QuestionBoard.js (button for Unanswered/Answered)
+    |       ├── QuestionBoard.js (Tab for Unanswered/Answered)
     |           ├── QuestionsUnanswered.js 
     |               |── QuestionDisplay.js + button to answer
     |           ├── QuestionsAnswered.js
@@ -44,19 +44,21 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
     |       |── LeaderBoard.js
     |
     ├── actions
-    │   ├── index.js
-    │   ├── logger.js
-    |
-    ├── middleware
     │   ├── authedUser.js
     │   ├── questions.js
-    |   ├── shared.js
+    │   ├── routeTrack.js
+    |   ├── shared.js # contains handleInitialData
     │   └── users.js   
+    |
+    ├── middleware
+    │   ├── index.js
+    │   └── logger.js
     |
     ├── reducers
     │   ├── authedUser.js
-    |   ├── index.js
+    |   ├── index.js # contains combineReducers
     │   ├── questions.js
+    │   ├── routeTrack.js
     │   └── users.js
     |
     ├── utils

@@ -44,7 +44,7 @@ class QuestionAnswer extends Component {
 
     const { answered, myChoice } = this.state
 
-    console.log(myChoice)
+    //console.log(myChoice)
 
     let oneIsChoice = false
     let twoIsChoice = false

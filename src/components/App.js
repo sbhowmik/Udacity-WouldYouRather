@@ -8,10 +8,10 @@ import Nav from './Nav'
 import QuestionBoard from './QuestionBoard'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
-import PageNotFound from './PageNotFound'
 import Logout from './Logout'
 import Login from './Login'
 import QuestionHandler from './QuestionHandler'
+import PageNotFoundHandler from './PageNotFoundHandler';
 
 class App extends Component {
 
@@ -50,7 +50,8 @@ class App extends Component {
               <Route path='/login' component={withRouter(Login)} />
               <Route path='/logout' component={Logout} /> 
               <Route path='/questions/:id' component={QuestionHandler} />
-              <Route path='/*' component={PageNotFound} />
+              <Route path='/pagenotfound' component={PageNotFoundHandler} />
+              <Route path='/*' component={PageNotFoundHandler} />
             </Switch>
           </div>
         </Fragment>
@@ -70,4 +71,3 @@ function mapStateToProps ({ authedUser }) {
 
 //
 export default connect(mapStateToProps)(App) //mapStateToProps
-

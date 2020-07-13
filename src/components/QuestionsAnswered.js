@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import QuestionDisplay from './QuestionDisplay'
 
+//
 class QuestionsAnswered extends Component {
 
   //
@@ -48,7 +49,7 @@ function mapStateToProps ({questions, authedUser}) {
   
   return {
     authedUser,
-     questionIDs 
+     questionIDs: questionIDs.sort((a,b) => (questions[b].timestamp - questions[a].timestamp)) 
   }
 }
 

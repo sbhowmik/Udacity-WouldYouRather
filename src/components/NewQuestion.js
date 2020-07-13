@@ -74,6 +74,7 @@ class NewQuestion extends Component {
     return (
       <div>
         <h3 className='center'>Compose a New Question</h3>
+        <h3 className='center'>Would You Rather...</h3>
         <form className='new-question' onSubmit={this.handleSubmit}>
           <div>
             <textarea

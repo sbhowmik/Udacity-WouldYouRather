@@ -19,8 +19,8 @@ export function getInitialData () {
 
 //
 export function saveQuestionAnswer (info) {
-  console.log('API')
-  console.log(info)
+  //console.log('API')
+  //console.log(info)
 
   return _saveQuestionAnswer({
     authedUser: info.authedUser,

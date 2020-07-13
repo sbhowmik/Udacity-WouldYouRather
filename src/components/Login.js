@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useLocation, useHistory } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
+
 
 class Login extends Component {
 
@@ -31,15 +32,22 @@ class Login extends Component {
     }))
   }
 
-  //
+  //render
   render() {
 
-    const {authedUser, users} = this.props
+    const {authedUser, users, redirRoute} = this.props
     const userIDs = Object.keys(users)
 
+    //console.log('location is:', this.props.location)
+
     //redirect to home if already logged in
-    if(authedUser !== null){
+    if(authedUser !== null && redirRoute === null){
       return <Redirect to= '/' />
+    }
+
+    //redirect to redirPage if specified
+    if(authedUser !== null &&  redirRoute !== null){
+      return <Redirect to= {redirRoute} />
     }
 
     return(
@@ -72,10 +80,11 @@ class Login extends Component {
 }//class
 
 //
-function mapStateToProps ({ authedUser, users }) {
+function mapStateToProps ({ authedUser, users, redirRoute }) {
   return {
     authedUser,
-    users
+    users,
+    redirRoute
   }
 }
 
