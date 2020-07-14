@@ -32,16 +32,19 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
 └── src
     ├── components
     |   ├── App.js # This is the root of app.
-    |       ├── QuestionBoard.js (Tab for Unanswered/Answered)
-    |           ├── QuestionsUnanswered.js 
-    |               |── QuestionDisplay.js + button to answer
-    |           ├── QuestionsAnswered.js
-    |               |── QuestionDisplay.js + button to see poll
+    |       └── QuestionBoard.js (Tab for Unanswered/Answered)
+    |           └── QuestionsUnanswered.js 
+    |               └── QuestionDisplay.js + button to answer
+    |           └── QuestionsAnswered.js
+    |               └── QuestionDisplay.js + button to see poll
     |       |── QuestionHandler.js (URL: /question)
     |           |── QuestionResult.js (if answered)
-    |           |── QuestionAnswer.js (if unanswered)
+    |           └── QuestionAnswer.js (if unanswered)
     |       |── NewQuestion.js
     |       |── LeaderBoard.js
+    |       └── PageNotFoundHandler.js
+    |           |── ForceLoginPage.js 
+    |           └── PageNotFound.js
     |
     ├── actions
     │   ├── authedUser.js
