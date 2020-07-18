@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link, useLocation, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PageNotFound from './PageNotFound'
 import ForceLoginPage from './ForceLoginPage'
@@ -7,7 +6,6 @@ import { setRedirRoute } from '../actions/routeTrack'
 import { setAuthedUser } from "../actions/authedUser"
 
 //
-//function PageNotFound() {
 class PageNotFoundHandler extends Component {
 
   //stores the redirRoute in store
@@ -34,7 +32,7 @@ class PageNotFoundHandler extends Component {
     //console.log('location path:', location.pathname)
     //console.log('history path:', history)
 
-    //set redir is blank ask for clear autheduser and login
+    //if redir is blank ask for clear autheduser and login
     if (redirRoute === null ) {
       this.forceLogout()
       this.storeRedirRoute(location.pathname)

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
-import '../index.css';
+import PrivateRoute from './PrivateRoute';
 import LoadingBar from 'react-redux-loading'
 import { handleInitialData } from '../actions/shared'
 import Nav from './Nav'
@@ -12,7 +12,9 @@ import Logout from './Logout'
 import Login from './Login'
 import QuestionHandler from './QuestionHandler'
 import PageNotFoundHandler from './PageNotFoundHandler';
+import '../index.css';
 
+//
 class App extends Component {
 
   //
@@ -36,6 +38,8 @@ class App extends Component {
   //
   render() {
 
+    const authedUser = this.props.authedUser
+
     //when logged
     return (
       <Router>
@@ -45,8 +49,8 @@ class App extends Component {
             <Nav />   
             <Switch>    
               <Route path='/' exact component={QuestionBoard} />
-              <Route path='/add' component={NewQuestion} />
-              <Route path='/leaderboard' component={LeaderBoard} />
+              <PrivateRoute path='/add' component={NewQuestion} authedUser={authedUser} />
+              <PrivateRoute path='/leaderboard' component={LeaderBoard} authedUser={authedUser} />
               <Route path='/login' component={withRouter(Login)} />
               <Route path='/logout' component={Logout} /> 
               <Route path='/questions/:id' component={QuestionHandler} />

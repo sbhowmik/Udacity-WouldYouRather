@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions.js'
 
+//
 class NewQuestion extends Component {
 
   //
@@ -40,6 +41,7 @@ class NewQuestion extends Component {
     this.setState(() => ({
       textOne
     }))
+
   }
 
   //
@@ -49,6 +51,7 @@ class NewQuestion extends Component {
     this.setState(() => ({
       textTwo
     }))
+
   }
 
   //
@@ -56,12 +59,6 @@ class NewQuestion extends Component {
 
     //
     const { textOne, textTwo, toHome } = this.state
-    const authedUser = this.props.authedUser
-
-    //
-    if (authedUser === null) {
-      return <Redirect to='/login' />
-    }
 
     //
     if(toHome === true) {
@@ -103,11 +100,16 @@ class NewQuestion extends Component {
                 Characters Left:{textTwoLeft}
               </div>
             )}
+            {textOne === textTwo && textOne !== '' && textTwo !== '' && (
+              <div className='error-alert'>
+                Text One and Two should be different!!
+              </div>
+            )}
           </div>
           <button
             className='btn'
             type='submit'
-            disabled={(textOne || textTwo) === ''}>
+            disabled={textOne === '' || textTwo === '' || textOne === textTwo}>
               Submit
           </button>
         </form>
@@ -117,10 +119,11 @@ class NewQuestion extends Component {
 }//class
 
 //
-function mapStateToProps({authedUser}){
+function mapStateToProps({authedUser, redirRoute}){
 
   return {
-    authedUser
+    authedUser,
+    redirRoute
   }
 }
 

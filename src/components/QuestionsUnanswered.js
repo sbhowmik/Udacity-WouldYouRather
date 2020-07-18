@@ -1,41 +1,37 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import QuestionDisplay from './QuestionDisplay'
 
 //
-class QuestionsUnanswered extends Component {
+function QuestionsUnanswered(props) {
 
   //
-  render() {
+  const { authedUser, questionIDs } = props //.questionIDs
+  //console.log(questionIDs)
 
-    const { authedUser, questionIDs } = this.props //.questionIDs
-    //console.log(questionIDs)
+  //if not logged in go to Login screen
+  if(authedUser === null){
+    return <Redirect to= '/login' />
+  }
 
-    //if not logged in go to Login screen
-    if(authedUser === null){
-      return <Redirect to= '/login' />
+  //
+  return (
+    <div>
+    <b>Attempt below Unanswered Question..</b>
+    { questionIDs.length ?
+        (questionIDs.map((qid) => (
+        <div key={qid}>
+          <QuestionDisplay id={qid} />
+          <Link to={`/questions/${qid}`}>
+            <button className='btn-q'>Answer Question</button>
+          </Link>
+        </div>
+      ))) : <div className='spacious'><i>Great, you have completed answering all questions!!</i></div>
     }
-
-    //
-    return (
-      <div>
-      <b>Attempt below Unanswered Question..</b>
-      { questionIDs.length ?
-         (questionIDs.map((qid) => (
-          <div key={qid}>
-            <QuestionDisplay id={qid} />
-            <Link to={`/questions/${qid}`}>
-              <button className='btn-q'>Answer Question</button>
-            </Link>
-          </div>
-        ))) : <div className='spacious'><i>Great, you have completed answering all questions!!</i></div>
-      }
-      </div>
-    )//return
-  }//render
-
+    </div>
+  )//return
 
 }//QuestionBoard
 

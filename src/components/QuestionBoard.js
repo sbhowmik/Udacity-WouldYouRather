@@ -82,7 +82,8 @@ class QuestionBoard extends Component {
 //
 function mapStateToProps ({ authedUser, redirRoute }) {
   return {
-    authedUser
+    authedUser,
+    redirRoute
   }
 }
 

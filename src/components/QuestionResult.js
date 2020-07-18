@@ -1,46 +1,44 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import QuestionDisplay from './QuestionDisplay'
 import { getQuestionInfos } from '../utils/helpers.js'
 import { Redirect } from 'react-router-dom'
 
-class QuestionResult extends Component {
+//
+function QuestionResult(props) {
 
   //
-  render() {
+  const { authedUser, id, questionIsValid } = props
 
-    const { authedUser, id, questionIsValid } = this.props
+  //redirect to login when not logged in
+  if (authedUser === null) {
+    return <Redirect to='/login' />
+  } 
 
-    //redirect to login when not logged in
-    if (authedUser === null) {
-      return <Redirect to='/login' />
-    } 
+  //if invalid question
+  if (questionIsValid === false) {
+    return (<div>INVALID QUESTION</div>)
+  }
 
-    //if invalid question
-    if (questionIsValid === false) {
-      return (<div>INVALID QUESTION</div>)
-    }
+  //further data
+  const { optionOneVote, optionTwoVote, totalVote, userVoted } = props.questionInfos
 
-    //further data
-    const { optionOneVote, optionTwoVote, totalVote, userVoted } = this.props.questionInfos
+  const optOnePerc = ((optionOneVote/totalVote) * 100).toFixed(1)
+  const optTwoPerc = ((optionTwoVote/totalVote) * 100).toFixed(1)
 
-    const optOnePerc = ((optionOneVote/totalVote) * 100).toFixed(1)
-    const optTwoPerc = ((optionTwoVote/totalVote) * 100).toFixed(1)
-
-    return (
-      <div>
-        <QuestionDisplay id={id} />
-        <div  className='question-vote' >    
-          <div className='question-vote-info'>
-            <b>Question's Poll Statistics:</b>
-            <div>Option <b>One</b>: {optionOneVote} out of {totalVote} votes. {optOnePerc}%</div>
-            <div>Option <b>Two</b>: {optionTwoVote} out of {totalVote} votes. {optTwoPerc}%</div>
-            <div>You voted for Option: <b>{userVoted}</b></div>
-            </div>
-        </div>
+  return (
+    <div>
+      <QuestionDisplay id={id} />
+      <div  className='question-vote' >    
+        <div className='question-vote-info'>
+          <b>Question's Poll Statistics:</b>
+          <div>Option <b>One</b>: {optionOneVote} out of {totalVote} votes. {optOnePerc}%</div>
+          <div>Option <b>Two</b>: {optionTwoVote} out of {totalVote} votes. {optTwoPerc}%</div>
+          <div>You voted for Option: <b>{userVoted}</b></div>
+          </div>
       </div>
-    )//return
-  }//render
+    </div>
+  )//return
 
 }//class
 
