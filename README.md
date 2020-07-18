@@ -31,15 +31,16 @@ Supporting: Bootstrapped with [Create React App](https://github.com/facebook/cre
 │   └── manifest.json
 └── src
     ├── components
-    |   ├── App.js # This is the root of app.
-    |       └── QuestionBoard.js (Tab for Unanswered/Answered)
-    |           └── QuestionsUnanswered.js 
-    |               └── QuestionDisplay.js + button to answer
-    |           └── QuestionsAnswered.js
-    |               └── QuestionDisplay.js + button to see poll
+    |   └── App.js # This is the root of app.
+    |       |── PrivateRoute.js #wraps NewQuesttion & LeaderBard to force login if not
+    |       |── QuestionBoard.js (Tab for Unanswered/Answered)
+    |       |    └── QuestionsUnanswered.js 
+    |       |        └── QuestionDisplay.js + button to answer
+    |       |    └── QuestionsAnswered.js
+    |       |        └── QuestionDisplay.js + button to see poll
     |       |── QuestionHandler.js (URL: /question)
-    |           |── QuestionResult.js (if answered)
-    |           └── QuestionAnswer.js (if unanswered)
+    |       |    |── QuestionResult.js (if answered)
+    |       |    └── QuestionAnswer.js (if unanswered)
     |       |── NewQuestion.js
     |       |── LeaderBoard.js
     |       └── PageNotFoundHandler.js
